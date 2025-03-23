@@ -1,6 +1,6 @@
 services:
     eliza:
-        command: ["pnpm", "start", "--character=./characters/eliza.character.json"]
+        command: ["pnpm", "start", "--character=./characters/sharkvc.json"]
         build:
             context: .
             dockerfile: Dockerfile
@@ -9,7 +9,8 @@ services:
         volumes:
             - ./data:/app/data
         environment:
-            - OPENROUTER_API_KEY=
+            - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+            - TELEGRAM_BOT_TOKEN=${BOT_TOKEN_AGENT_1}
             - ELEVENLABS_XI_API_KEY=
             - ELEVENLABS_MODEL_ID=eleven_multilingual_v2
             - ELEVENLABS_VOICE_ID=21m00Tcm4TlvDq8ikWAM
